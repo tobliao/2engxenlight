@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2Eng x Enlight iGEM Team</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563EB;
+            --primary-dark: #1D4ED8;
+            --primary-light: #3B82F6;
+            --accent: #7C3AED;
+            --accent-light: #A78BFA;
+            --bg-white: #FFFFFF;
+            --bg-gray-50: #F9FAFB;
+            --bg-gray-100: #F3F4F6;
+            --text-primary: #111827;
+            --text-secondary: #6B7280;
+            --text-muted: #9CA3AF;
+            --border: #E5E7EB;
+            --border-light: #F3F4F6;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-white);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            padding: 10px 28px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-gray-50) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 60% 80%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 100px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 650px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 16px 40px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.0625rem;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            padding: 16px 40px;
+            background: var(--bg-white);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.0625rem;
+            transition: all 0.2s ease;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 64px;
+            text-align: center;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--bg-gray-100);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Program Section */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .program-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .program-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .program-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .program-card.large {
+            grid-column: span 2;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 14px 14px 0 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.9375rem;
+        }
+
+        /* Facility Section */
+        .facility-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .facility-content {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .facility-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .facility-info {
+            padding: 48px;
+        }
+
+        .facility-info h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .facility-info p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .facility-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            background: var(--bg-gray-50);
+            border-radius: 10px;
+            font-size: 0.9375rem;
+        }
+
+        .meta-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.125rem;
+        }
+
+        .meta-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .meta-item a:hover {
+            color: var(--primary-dark);
+        }
+
+        .facility-map-container {
+            background: var(--bg-gray-100);
+            position: relative;
+            min-height: 500px;
+        }
+
+        .facility-map {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border: none;
+            display: block;
+        }
+
+        /* Team Section */
+        .team-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 48px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .team-card h3 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .team-card p {
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.0625rem;
+        }
+
+        .team-roles {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .role-item {
+            padding: 20px;
+            background: var(--bg-gray-50);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .role-item:hover {
+            background: var(--bg-white);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .role-item::before {
+            content: '→';
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .role-item span {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Outcomes Section */
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .outcome-box {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .outcome-box h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .outcome-list {
+            list-style: none;
+        }
+
+        .outcome-list li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .outcome-list li:last-child {
+            border-bottom: none;
+        }
+
+        .outcome-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 24px 28px;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            background: var(--bg-gray-50);
+            position: relative;
+            padding-left: 64px;
+        }
+
+        .faq-question::before {
+            content: 'Q';
+            position: absolute;
+            left: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .faq-answer {
+            padding: 24px 28px 28px 64px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--bg-gray-50);
+            border-top: 1px solid var(--border);
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .footer-logo span {
+            color: var(--primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9375rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.25rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .facility-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facility-info {
+                padding: 40px;
+            }
+
+            .facility-map-container {
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.125rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .program-grid,
+            .features-grid,
+            .outcomes-grid,
+            .team-roles {
+                grid-template-columns: 1fr;
+            }
+
+            .program-card.large {
+                grid-column: span 1;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .facility-info {
+                padding: 32px 24px;
+            }
+
+            .team-card {
+                padding: 32px 24px;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+                padding: 20px 24px 20px 56px;
+            }
+
+            .faq-question::before {
+                left: 20px;
+            }
+
+            .faq-answer {
+                padding: 20px 24px 24px 56px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">2Eng <span>x</span> Enlight</div>
+            <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" class="nav-cta">Apply Now</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span>iGEM Team Program</span>
+                </div>
+                <h1>
+                    Exploring the Future of <span class="highlight">BioDesign</span>
+                </h1>
+                <p class="hero-description">
+                    A collaborative biotech education program between Jeff's professional team and 2Engineer Prep School.
+                    Empowering high school students to think transdisciplinarily and explore biodesign as an emerging field
+                    bridging biotechnology, design, and art—with future possibilities at NTU facilities.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" class="btn-primary">
+                        Join Waitlist
+                        <span>→</span>
+                    </a>
+                    <a href="#program" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Introduction -->
+    <section id="program" style="background: var(--bg-gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Program Overview</div>
+                <h2 class="section-title">A New Paradigm in Biotech Education</h2>
+                <p class="section-description">
+                    This project-oriented course invites high-school students to explore biodesign—an emerging
+                    transdisciplinary field where science meets creativity.
+                </p>
+            </div>
+            <div class="program-grid">
+                <div class="program-card">
+                    <h3>Professional Environment</h3>
+                    <p>
+                        Hosted in a professional biotechnology facility, this course is co-created by a Principal
+                        Investigator (PI) and our expert team, providing students with access to real-world lab
+                        environments and cutting-edge equipment.
+                    </p>
+                </div>
+                <div class="program-card">
+                    <h3>Transdisciplinary Approach</h3>
+                    <p>
+                        Students learn to think across disciplines, using biodesign as a medium to deeply engage
+                        with concepts in biotechnology, artificial intelligence, and related emerging fields.
+                    </p>
+                </div>
+                <div class="program-card large">
+                    <h3>Beyond Traditional Learning</h3>
+                    <p>
+                        We encourage students to imagine beyond the classroom and beyond the "givens" of the internet.
+                        Rather than merely solving predefined problems, students will develop a deeper understanding
+                        of the world's complexity, enabling them to discover what truly matters to them and contribute
+                        meaningfully to science and society.
+                    </p>
+                    <p>
+                        With plans to expand to NTU facilities, this program opens pathways to advanced research
+                        opportunities and collaboration with leading institutions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Features -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Key Features</div>
+                <h2 class="section-title">What Makes This Program Unique</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔬</div>
+                    <h3>Professional Biotech Facility</h3>
+                    <p>Access to industry-standard equipment and protocols in a professional laboratory setting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧬</div>
+                    <h3>Hands-On Lab Experience</h3>
+                    <p>Direct engagement with experimental techniques, from basic protocols to advanced applications.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Extended Project Development</h3>
+                    <p>Complete project lifecycle from ideation and design to implementation and presentation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Portfolio-Ready Outcomes</h3>
+                    <p>High-quality project deliverables suitable for university applications and competitions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Small-Group Mentorship</h3>
+                    <p>Intimate cohort sizes ensuring personalized guidance and meaningful interactions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Transdisciplinary Integration</h3>
+                    <p>Bridging biology, technology, design, and art for holistic problem-solving skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facility Overview -->
+    <section id="facility" style="background: var(--bg-gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Infrastructure</div>
+                <h2 class="section-title">State-of-the-Art Learning Environment</h2>
+            </div>
+            <div class="facility-wrapper">
+                <div class="facility-content">
+                    <div class="facility-grid">
+                        <div class="facility-info">
+                            <h3>Professional Laboratory Space</h3>
+                            <p>
+                                Our program operates in a biosafety-compliant professional laboratory equipped with
+                                comprehensive molecular biology instruments, cell culture facilities, and specialized
+                                tools for biodesign applications.
+                            </p>
+                            <p>
+                                The facility is managed by experienced professionals who ensure all operations meet
+                                rigorous safety standards. Students receive comprehensive safety training and ethical
+                                guidelines before beginning hands-on work.
+                            </p>
+                            <p>
+                                Future expansion plans include collaboration with National Taiwan University (NTU)
+                                facilities, opening pathways to advanced research infrastructure and academic partnerships.
+                            </p>
+                            <div class="facility-meta">
+                                <div class="meta-item">
+                                    <div class="meta-icon">🌐</div>
+                                    <span><a href="https://2engineers.org" target="_blank">2Engineer Prep School</a></span>
+                                </div>
+                                <div class="meta-item">
+                                    <div class="meta-icon">📍</div>
+                                    <span>No. 5, Alley 18, Lane 140, Section 2, Zhongcheng Road, Taipei</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="facility-map-container">
+                            <iframe
+                                class="facility-map"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.898951373932!2d121.53177487537855!3d25.08569757779822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ac6b61dbbd83%3A0x2c35889ba79d1f8!2sNo.%205%2C%20Lane%20140%2C%20Section%202%2C%20Zhongcheng%20Rd%2C%20Beitou%20District%2C%20Taipei%20City%2C%20112!5e0!3m2!1sen!2stw!4v1699999999999!5m2!1sen!2stw"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Leadership</div>
+                <h2 class="section-title">Expert-Led Instruction</h2>
+            </div>
+            <div class="team-card">
+                <h3>Jeff & Professional Teaching Team</h3>
+                <p>
+                    Our instructional team is led by Jeff, who brings extensive expertise in biotechnology,
+                    design thinking, and interdisciplinary education. The team comprises professionals with
+                    backgrounds spanning molecular biology, synthetic biology, design, art, and pedagogy.
+                </p>
+                <p>
+                    Jeff possesses deep technical knowledge in biotechnology combined with unique insights
+                    into design methodology and artistic expression. Team members contribute diverse perspectives
+                    from academia, industry, and creative fields, enabling comprehensive student support.
+                </p>
+                <p>Throughout this program, the teaching team serves multiple critical roles:</p>
+                <div class="team-roles">
+                    <div class="role-item">
+                        <span><strong>Curriculum Design & Instruction</strong> — Architecting learning pathways and guiding students through biodesign concepts</span>
+                    </div>
+                    <div class="role-item">
+                        <span><strong>Laboratory Training & Safety</strong> — Ensuring proper technique, equipment usage, and biosafety compliance</span>
+                    </div>
+                    <div class="role-item">
+                        <span><strong>Project Mentorship</strong> — Supporting individual projects with technical expertise and strategic guidance</span>
+                    </div>
+                    <div class="role-item">
+                        <span><strong>Transdisciplinary Facilitation</strong> — Fostering systemic thinking and innovative problem-solving approaches</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience & Outcomes -->
+    <section id="outcomes" style="background: var(--bg-gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Eligibility & Impact</div>
+                <h2 class="section-title">Who Should Apply & What You'll Gain</h2>
+            </div>
+            <div class="outcomes-grid">
+                <div class="outcome-box">
+                    <h3>Ideal Candidates</h3>
+                    <ul class="outcome-list">
+                        <li>Students in grades 9-12 (all backgrounds welcome)</li>
+                        <li>No prior experience or specialized knowledge required</li>
+                        <li>Curiosity about biotechnology, design, or interdisciplinary work</li>
+                        <li>Willingness to explore unfamiliar territories and embrace challenges</li>
+                        <li>Interest in developing unique project portfolios</li>
+                        <li>Open to collaborative and experimental learning</li>
+                    </ul>
+                </div>
+                <div class="outcome-box">
+                    <h3>Learning Outcomes</h3>
+                    <ul class="outcome-list">
+                        <li>Transdisciplinary thinking and systems integration capabilities</li>
+                        <li>Scientific creativity and design-driven innovation mindset</li>
+                        <li>Deep understanding of biodesign principles and applications</li>
+                        <li>Professional laboratory skills and technical competencies</li>
+                        <li>Exposure to iGEM-style synthetic biology project workflows</li>
+                        <li>Deliverable project work for portfolios and applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Questions</div>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Do students need prior biology or science background?</div>
+                    <div class="faq-answer">
+                        Absolutely not. This program welcomes students from all backgrounds—humanities, arts, sciences,
+                        or engineering. We begin with foundational concepts and progressively build complexity.
+                        What matters most is intellectual curiosity and willingness to engage with new ideas.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How is laboratory safety ensured?</div>
+                    <div class="faq-answer">
+                        Our facility complies with all biosafety regulations, and all activities occur under
+                        professional supervision. Before any hands-on work, students complete comprehensive safety
+                        training covering proper protocols, protective equipment, material handling, and emergency
+                        procedures. All biological materials are carefully vetted for safety.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What is the cohort size?</div>
+                    <div class="faq-answer">
+                        To ensure quality instruction while maintaining collaborative dynamics, we accept cohorts of
+                        20-25 students. This size enables personalized guidance while fostering rich peer discussion
+                        and team-based project work.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What tangible outcomes will students produce?</div>
+                    <div class="faq-answer">
+                        Students will complete at least one comprehensive biodesign project, including research
+                        documentation, experimental records, and final presentation materials. These deliverables
+                        are suitable for university applications, science competitions, or personal portfolios.
+                        More importantly, students develop transdisciplinary thinking, scientific literacy, and
+                        innovation capabilities.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How does this relate to iGEM or synthetic biology competitions?</div>
+                    <div class="faq-answer">
+                        This program employs a project-based learning model similar to iGEM (International Genetically
+                        Engineered Machine competition), guiding students through the complete research cycle:
+                        problem identification, experimental design, implementation, and presentation. While not
+                        directly entering iGEM, students gain equivalent experience and skills, establishing a
+                        strong foundation for future international competition participation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Begin Your BioDesign Journey?</h2>
+                <p>Limited spots available. Join our waitlist and we'll be in touch soon.</p>
+                <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" class="btn-primary">
+                    Submit Application
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">2Eng <span>x</span> Enlight</div>
+                <div class="footer-links">
+                    <a href="https://2engineers.org" target="_blank">2Engineer Prep School</a>
+                    <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank">Apply</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 2Eng x Enlight iGEM Team. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
