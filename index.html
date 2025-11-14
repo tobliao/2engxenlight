@@ -6,7 +6,7 @@
     <title>2Eng x Enlight iGEM Team</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -43,6 +43,10 @@
             overflow-x: hidden;
         }
 
+        body[lang="zh-TW"] {
+            font-family: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
         /* Container */
         .container {
             max-width: 1200px;
@@ -69,6 +73,18 @@
             align-items: center;
         }
 
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
         .logo {
             font-size: 1.375rem;
             font-weight: 700;
@@ -79,6 +95,39 @@
 
         .logo span {
             color: var(--primary);
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            background: var(--bg-gray-50);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .lang-btn {
+            padding: 4px 12px;
+            background: transparent;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--bg-white);
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
         }
 
         .nav-cta {
@@ -807,12 +856,20 @@
         }
     </style>
 </head>
-<body>
+<body lang="en">
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <div class="logo">2Eng <span>x</span> Enlight</div>
-            <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" class="nav-cta">Apply Now</a>
+            <div class="nav-left">
+                <div class="logo">2Eng <span>x</span> Enlight</div>
+            </div>
+            <div class="nav-right">
+                <div class="lang-toggle">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh-TW">中文</button>
+                </div>
+                <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" class="nav-cta" data-i18n="nav.apply">Apply Now</a>
+            </div>
         </div>
     </nav>
 
@@ -821,22 +878,22 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-tag">
-                    <span>iGEM Team Program</span>
+                    <span data-i18n="hero.tag">iGEM Team Program</span>
                 </div>
                 <h1>
-                    Exploring the Future of <span class="highlight">BioDesign</span>
+                    <span data-i18n="hero.title1">Exploring the Future of </span><span class="highlight" data-i18n="hero.title2">BioDesign</span>
                 </h1>
-                <p class="hero-description">
+                <p class="hero-description" data-i18n="hero.description">
                     A collaborative biotech education program between Jeff's professional team and 2Engineer Prep School.
                     Empowering high school students to think transdisciplinarily and explore biodesign as an emerging field
                     bridging biotechnology, design, and art—with future possibilities at NTU facilities.
                 </p>
                 <div class="hero-buttons">
                     <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" class="btn-primary">
-                        Join Waitlist
+                        <span data-i18n="hero.cta1">Join Waitlist</span>
                         <span>→</span>
                     </a>
-                    <a href="#program" class="btn-secondary">Learn More</a>
+                    <a href="#program" class="btn-secondary" data-i18n="hero.cta2">Learn More</a>
                 </div>
             </div>
         </div>
@@ -846,38 +903,38 @@
     <section id="program" style="background: var(--bg-gray-50);">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Program Overview</div>
-                <h2 class="section-title">A New Paradigm in Biotech Education</h2>
-                <p class="section-description">
+                <div class="section-tag" data-i18n="program.tag">Program Overview</div>
+                <h2 class="section-title" data-i18n="program.title">A New Paradigm in Biotech Education</h2>
+                <p class="section-description" data-i18n="program.subtitle">
                     This project-oriented course invites high-school students to explore biodesign—an emerging
                     transdisciplinary field where science meets creativity.
                 </p>
             </div>
             <div class="program-grid">
                 <div class="program-card">
-                    <h3>Professional Environment</h3>
-                    <p>
+                    <h3 data-i18n="program.card1.title">Professional Environment</h3>
+                    <p data-i18n="program.card1.desc">
                         Hosted in a professional biotechnology facility, this course is co-created by a Principal
                         Investigator (PI) and our expert team, providing students with access to real-world lab
                         environments and cutting-edge equipment.
                     </p>
                 </div>
                 <div class="program-card">
-                    <h3>Transdisciplinary Approach</h3>
-                    <p>
+                    <h3 data-i18n="program.card2.title">Transdisciplinary Approach</h3>
+                    <p data-i18n="program.card2.desc">
                         Students learn to think across disciplines, using biodesign as a medium to deeply engage
                         with concepts in biotechnology, artificial intelligence, and related emerging fields.
                     </p>
                 </div>
                 <div class="program-card large">
-                    <h3>Beyond Traditional Learning</h3>
-                    <p>
+                    <h3 data-i18n="program.card3.title">Beyond Traditional Learning</h3>
+                    <p data-i18n="program.card3.desc1">
                         We encourage students to imagine beyond the classroom and beyond the "givens" of the internet.
                         Rather than merely solving predefined problems, students will develop a deeper understanding
                         of the world's complexity, enabling them to discover what truly matters to them and contribute
                         meaningfully to science and society.
                     </p>
-                    <p>
+                    <p data-i18n="program.card3.desc2">
                         With plans to expand to NTU facilities, this program opens pathways to advanced research
                         opportunities and collaboration with leading institutions.
                     </p>
@@ -890,39 +947,39 @@
     <section>
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Key Features</div>
-                <h2 class="section-title">What Makes This Program Unique</h2>
+                <div class="section-tag" data-i18n="features.tag">Key Features</div>
+                <h2 class="section-title" data-i18n="features.title">What Makes This Program Unique</h2>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">🔬</div>
-                    <h3>Professional Biotech Facility</h3>
-                    <p>Access to industry-standard equipment and protocols in a professional laboratory setting.</p>
+                    <h3 data-i18n="features.f1.title">Professional Biotech Facility</h3>
+                    <p data-i18n="features.f1.desc">Access to industry-standard equipment and protocols in a professional laboratory setting.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🧬</div>
-                    <h3>Hands-On Lab Experience</h3>
-                    <p>Direct engagement with experimental techniques, from basic protocols to advanced applications.</p>
+                    <h3 data-i18n="features.f2.title">Hands-On Lab Experience</h3>
+                    <p data-i18n="features.f2.desc">Direct engagement with experimental techniques, from basic protocols to advanced applications.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
-                    <h3>Extended Project Development</h3>
-                    <p>Complete project lifecycle from ideation and design to implementation and presentation.</p>
+                    <h3 data-i18n="features.f3.title">Extended Project Development</h3>
+                    <p data-i18n="features.f3.desc">Complete project lifecycle from ideation and design to implementation and presentation.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎯</div>
-                    <h3>Portfolio-Ready Outcomes</h3>
-                    <p>High-quality project deliverables suitable for university applications and competitions.</p>
+                    <h3 data-i18n="features.f4.title">Portfolio-Ready Outcomes</h3>
+                    <p data-i18n="features.f4.desc">High-quality project deliverables suitable for university applications and competitions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">👥</div>
-                    <h3>Small-Group Mentorship</h3>
-                    <p>Intimate cohort sizes ensuring personalized guidance and meaningful interactions.</p>
+                    <h3 data-i18n="features.f5.title">Small-Group Mentorship</h3>
+                    <p data-i18n="features.f5.desc">Intimate cohort sizes ensuring personalized guidance and meaningful interactions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3>Transdisciplinary Integration</h3>
-                    <p>Bridging biology, technology, design, and art for holistic problem-solving skills.</p>
+                    <h3 data-i18n="features.f6.title">Transdisciplinary Integration</h3>
+                    <p data-i18n="features.f6.desc">Bridging biology, technology, design, and art for holistic problem-solving skills.</p>
                 </div>
             </div>
         </div>
@@ -932,25 +989,25 @@
     <section id="facility" style="background: var(--bg-gray-50);">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Infrastructure</div>
-                <h2 class="section-title">State-of-the-Art Learning Environment</h2>
+                <div class="section-tag" data-i18n="facility.tag">Infrastructure</div>
+                <h2 class="section-title" data-i18n="facility.title">State-of-the-Art Learning Environment</h2>
             </div>
             <div class="facility-wrapper">
                 <div class="facility-content">
                     <div class="facility-grid">
                         <div class="facility-info">
-                            <h3>Professional Laboratory Space</h3>
-                            <p>
+                            <h3 data-i18n="facility.subtitle">Professional Laboratory Space</h3>
+                            <p data-i18n="facility.p1">
                                 Our program operates in a biosafety-compliant professional laboratory equipped with
                                 comprehensive molecular biology instruments, cell culture facilities, and specialized
                                 tools for biodesign applications.
                             </p>
-                            <p>
+                            <p data-i18n="facility.p2">
                                 The facility is managed by experienced professionals who ensure all operations meet
                                 rigorous safety standards. Students receive comprehensive safety training and ethical
                                 guidelines before beginning hands-on work.
                             </p>
-                            <p>
+                            <p data-i18n="facility.p3">
                                 Future expansion plans include collaboration with National Taiwan University (NTU)
                                 facilities, opening pathways to advanced research infrastructure and academic partnerships.
                             </p>
@@ -961,7 +1018,7 @@
                                 </div>
                                 <div class="meta-item">
                                     <div class="meta-icon">📍</div>
-                                    <span>No. 5, Alley 18, Lane 140, Section 2, Zhongcheng Road, Taipei</span>
+                                    <span data-i18n="facility.address">No. 5, Alley 18, Lane 140, Section 2, Zhongcheng Road, Taipei</span>
                                 </div>
                             </div>
                         </div>
@@ -983,34 +1040,34 @@
     <section>
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Leadership</div>
-                <h2 class="section-title">Expert-Led Instruction</h2>
+                <div class="section-tag" data-i18n="team.tag">Leadership</div>
+                <h2 class="section-title" data-i18n="team.title">Expert-Led Instruction</h2>
             </div>
             <div class="team-card">
-                <h3>Jeff & Professional Teaching Team</h3>
-                <p>
+                <h3 data-i18n="team.subtitle">Jeff & Professional Teaching Team</h3>
+                <p data-i18n="team.p1">
                     Our instructional team is led by Jeff, who brings extensive expertise in biotechnology,
                     design thinking, and interdisciplinary education. The team comprises professionals with
                     backgrounds spanning molecular biology, synthetic biology, design, art, and pedagogy.
                 </p>
-                <p>
+                <p data-i18n="team.p2">
                     Jeff possesses deep technical knowledge in biotechnology combined with unique insights
                     into design methodology and artistic expression. Team members contribute diverse perspectives
                     from academia, industry, and creative fields, enabling comprehensive student support.
                 </p>
-                <p>Throughout this program, the teaching team serves multiple critical roles:</p>
+                <p data-i18n="team.p3">Throughout this program, the teaching team serves multiple critical roles:</p>
                 <div class="team-roles">
                     <div class="role-item">
-                        <span><strong>Curriculum Design & Instruction</strong> — Architecting learning pathways and guiding students through biodesign concepts</span>
+                        <span data-i18n="team.role1"><strong>Curriculum Design & Instruction</strong> — Architecting learning pathways and guiding students through biodesign concepts</span>
                     </div>
                     <div class="role-item">
-                        <span><strong>Laboratory Training & Safety</strong> — Ensuring proper technique, equipment usage, and biosafety compliance</span>
+                        <span data-i18n="team.role2"><strong>Laboratory Training & Safety</strong> — Ensuring proper technique, equipment usage, and biosafety compliance</span>
                     </div>
                     <div class="role-item">
-                        <span><strong>Project Mentorship</strong> — Supporting individual projects with technical expertise and strategic guidance</span>
+                        <span data-i18n="team.role3"><strong>Project Mentorship</strong> — Supporting individual projects with technical expertise and strategic guidance</span>
                     </div>
                     <div class="role-item">
-                        <span><strong>Transdisciplinary Facilitation</strong> — Fostering systemic thinking and innovative problem-solving approaches</span>
+                        <span data-i18n="team.role4"><strong>Transdisciplinary Facilitation</strong> — Fostering systemic thinking and innovative problem-solving approaches</span>
                     </div>
                 </div>
             </div>
@@ -1021,30 +1078,30 @@
     <section id="outcomes" style="background: var(--bg-gray-50);">
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Eligibility & Impact</div>
-                <h2 class="section-title">Who Should Apply & What You'll Gain</h2>
+                <div class="section-tag" data-i18n="outcomes.tag">Eligibility & Impact</div>
+                <h2 class="section-title" data-i18n="outcomes.title">Who Should Apply & What You'll Gain</h2>
             </div>
             <div class="outcomes-grid">
                 <div class="outcome-box">
-                    <h3>Ideal Candidates</h3>
+                    <h3 data-i18n="outcomes.candidates">Ideal Candidates</h3>
                     <ul class="outcome-list">
-                        <li>Students in grades 9-12 (all backgrounds welcome)</li>
-                        <li>No prior experience or specialized knowledge required</li>
-                        <li>Curiosity about biotechnology, design, or interdisciplinary work</li>
-                        <li>Willingness to explore unfamiliar territories and embrace challenges</li>
-                        <li>Interest in developing unique project portfolios</li>
-                        <li>Open to collaborative and experimental learning</li>
+                        <li data-i18n="outcomes.c1">Students in grades 9-12 (all backgrounds welcome)</li>
+                        <li data-i18n="outcomes.c2">No prior experience or specialized knowledge required</li>
+                        <li data-i18n="outcomes.c3">Curiosity about biotechnology, design, or interdisciplinary work</li>
+                        <li data-i18n="outcomes.c4">Willingness to explore unfamiliar territories and embrace challenges</li>
+                        <li data-i18n="outcomes.c5">Interest in developing unique project portfolios</li>
+                        <li data-i18n="outcomes.c6">Open to collaborative and experimental learning</li>
                     </ul>
                 </div>
                 <div class="outcome-box">
-                    <h3>Learning Outcomes</h3>
+                    <h3 data-i18n="outcomes.learning">Learning Outcomes</h3>
                     <ul class="outcome-list">
-                        <li>Transdisciplinary thinking and systems integration capabilities</li>
-                        <li>Scientific creativity and design-driven innovation mindset</li>
-                        <li>Deep understanding of biodesign principles and applications</li>
-                        <li>Professional laboratory skills and technical competencies</li>
-                        <li>Exposure to iGEM-style synthetic biology project workflows</li>
-                        <li>Deliverable project work for portfolios and applications</li>
+                        <li data-i18n="outcomes.l1">Transdisciplinary thinking and systems integration capabilities</li>
+                        <li data-i18n="outcomes.l2">Scientific creativity and design-driven innovation mindset</li>
+                        <li data-i18n="outcomes.l3">Deep understanding of biodesign principles and applications</li>
+                        <li data-i18n="outcomes.l4">Professional laboratory skills and technical competencies</li>
+                        <li data-i18n="outcomes.l5">Exposure to iGEM-style synthetic biology project workflows</li>
+                        <li data-i18n="outcomes.l6">Deliverable project work for portfolios and applications</li>
                     </ul>
                 </div>
             </div>
@@ -1055,21 +1112,21 @@
     <section>
         <div class="container">
             <div class="section-header">
-                <div class="section-tag">Questions</div>
-                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="section-tag" data-i18n="faq.tag">Questions</div>
+                <h2 class="section-title" data-i18n="faq.title">Frequently Asked Questions</h2>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question">Do students need prior biology or science background?</div>
-                    <div class="faq-answer">
+                    <div class="faq-question" data-i18n="faq.q1">Do students need prior biology or science background?</div>
+                    <div class="faq-answer" data-i18n="faq.a1">
                         Absolutely not. This program welcomes students from all backgrounds—humanities, arts, sciences,
                         or engineering. We begin with foundational concepts and progressively build complexity.
                         What matters most is intellectual curiosity and willingness to engage with new ideas.
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">How is laboratory safety ensured?</div>
-                    <div class="faq-answer">
+                    <div class="faq-question" data-i18n="faq.q2">How is laboratory safety ensured?</div>
+                    <div class="faq-answer" data-i18n="faq.a2">
                         Our facility complies with all biosafety regulations, and all activities occur under
                         professional supervision. Before any hands-on work, students complete comprehensive safety
                         training covering proper protocols, protective equipment, material handling, and emergency
@@ -1077,16 +1134,16 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">What is the cohort size?</div>
-                    <div class="faq-answer">
+                    <div class="faq-question" data-i18n="faq.q3">What is the cohort size?</div>
+                    <div class="faq-answer" data-i18n="faq.a3">
                         To ensure quality instruction while maintaining collaborative dynamics, we accept cohorts of
                         20-25 students. This size enables personalized guidance while fostering rich peer discussion
                         and team-based project work.
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">What tangible outcomes will students produce?</div>
-                    <div class="faq-answer">
+                    <div class="faq-question" data-i18n="faq.q4">What tangible outcomes will students produce?</div>
+                    <div class="faq-answer" data-i18n="faq.a4">
                         Students will complete at least one comprehensive biodesign project, including research
                         documentation, experimental records, and final presentation materials. These deliverables
                         are suitable for university applications, science competitions, or personal portfolios.
@@ -1095,8 +1152,8 @@
                     </div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">How does this relate to iGEM or synthetic biology competitions?</div>
-                    <div class="faq-answer">
+                    <div class="faq-question" data-i18n="faq.q5">How does this relate to iGEM or synthetic biology competitions?</div>
+                    <div class="faq-answer" data-i18n="faq.a5">
                         This program employs a project-based learning model similar to iGEM (International Genetically
                         Engineered Machine competition), guiding students through the complete research cycle:
                         problem identification, experimental design, implementation, and presentation. While not
@@ -1112,10 +1169,10 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Begin Your BioDesign Journey?</h2>
-                <p>Limited spots available. Join our waitlist and we'll be in touch soon.</p>
+                <h2 data-i18n="cta.title">Ready to Begin Your BioDesign Journey?</h2>
+                <p data-i18n="cta.subtitle">Limited spots available. Join our waitlist and we'll be in touch soon.</p>
                 <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" class="btn-primary">
-                    Submit Application
+                    <span data-i18n="cta.button">Submit Application</span>
                     <span>→</span>
                 </a>
             </div>
@@ -1129,13 +1186,226 @@
                 <div class="footer-logo">2Eng <span>x</span> Enlight</div>
                 <div class="footer-links">
                     <a href="https://2engineers.org" target="_blank">2Engineer Prep School</a>
-                    <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank">Apply</a>
+                    <a href="https://forms.gle/macJhgU2vyLXkUD4A" target="_blank" data-i18n="footer.apply">Apply</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 2Eng x Enlight iGEM Team. All rights reserved.</p>
+                <p data-i18n="footer.copyright">&copy; 2025 2Eng x Enlight iGEM Team. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            'en': {
+                'nav.apply': 'Apply Now',
+                'hero.tag': 'iGEM Team Program',
+                'hero.title1': 'Exploring the Future of ',
+                'hero.title2': 'BioDesign',
+                'hero.description': 'A collaborative biotech education program between Jeff\'s professional team and 2Engineer Prep School. Empowering high school students to think transdisciplinarily and explore biodesign as an emerging field bridging biotechnology, design, and art—with future possibilities at NTU facilities.',
+                'hero.cta1': 'Join Waitlist',
+                'hero.cta2': 'Learn More',
+                'program.tag': 'Program Overview',
+                'program.title': 'A New Paradigm in Biotech Education',
+                'program.subtitle': 'This project-oriented course invites high-school students to explore biodesign—an emerging transdisciplinary field where science meets creativity.',
+                'program.card1.title': 'Professional Environment',
+                'program.card1.desc': 'Hosted in a professional biotechnology facility, this course is co-created by a Principal Investigator (PI) and our expert team, providing students with access to real-world lab environments and cutting-edge equipment.',
+                'program.card2.title': 'Transdisciplinary Approach',
+                'program.card2.desc': 'Students learn to think across disciplines, using biodesign as a medium to deeply engage with concepts in biotechnology, artificial intelligence, and related emerging fields.',
+                'program.card3.title': 'Beyond Traditional Learning',
+                'program.card3.desc1': 'We encourage students to imagine beyond the classroom and beyond the "givens" of the internet. Rather than merely solving predefined problems, students will develop a deeper understanding of the world\'s complexity, enabling them to discover what truly matters to them and contribute meaningfully to science and society.',
+                'program.card3.desc2': 'With plans to expand to NTU facilities, this program opens pathways to advanced research opportunities and collaboration with leading institutions.',
+                'features.tag': 'Key Features',
+                'features.title': 'What Makes This Program Unique',
+                'features.f1.title': 'Professional Biotech Facility',
+                'features.f1.desc': 'Access to industry-standard equipment and protocols in a professional laboratory setting.',
+                'features.f2.title': 'Hands-On Lab Experience',
+                'features.f2.desc': 'Direct engagement with experimental techniques, from basic protocols to advanced applications.',
+                'features.f3.title': 'Extended Project Development',
+                'features.f3.desc': 'Complete project lifecycle from ideation and design to implementation and presentation.',
+                'features.f4.title': 'Portfolio-Ready Outcomes',
+                'features.f4.desc': 'High-quality project deliverables suitable for university applications and competitions.',
+                'features.f5.title': 'Small-Group Mentorship',
+                'features.f5.desc': 'Intimate cohort sizes ensuring personalized guidance and meaningful interactions.',
+                'features.f6.title': 'Transdisciplinary Integration',
+                'features.f6.desc': 'Bridging biology, technology, design, and art for holistic problem-solving skills.',
+                'facility.tag': 'Infrastructure',
+                'facility.title': 'State-of-the-Art Learning Environment',
+                'facility.subtitle': 'Professional Laboratory Space',
+                'facility.p1': 'Our program operates in a biosafety-compliant professional laboratory equipped with comprehensive molecular biology instruments, cell culture facilities, and specialized tools for biodesign applications.',
+                'facility.p2': 'The facility is managed by experienced professionals who ensure all operations meet rigorous safety standards. Students receive comprehensive safety training and ethical guidelines before beginning hands-on work.',
+                'facility.p3': 'Future expansion plans include collaboration with National Taiwan University (NTU) facilities, opening pathways to advanced research infrastructure and academic partnerships.',
+                'facility.address': 'No. 5, Alley 18, Lane 140, Section 2, Zhongcheng Road, Taipei',
+                'team.tag': 'Leadership',
+                'team.title': 'Expert-Led Instruction',
+                'team.subtitle': 'Jeff & Professional Teaching Team',
+                'team.p1': 'Our instructional team is led by Jeff, who brings extensive expertise in biotechnology, design thinking, and interdisciplinary education. The team comprises professionals with backgrounds spanning molecular biology, synthetic biology, design, art, and pedagogy.',
+                'team.p2': 'Jeff possesses deep technical knowledge in biotechnology combined with unique insights into design methodology and artistic expression. Team members contribute diverse perspectives from academia, industry, and creative fields, enabling comprehensive student support.',
+                'team.p3': 'Throughout this program, the teaching team serves multiple critical roles:',
+                'team.role1': '<strong>Curriculum Design & Instruction</strong> — Architecting learning pathways and guiding students through biodesign concepts',
+                'team.role2': '<strong>Laboratory Training & Safety</strong> — Ensuring proper technique, equipment usage, and biosafety compliance',
+                'team.role3': '<strong>Project Mentorship</strong> — Supporting individual projects with technical expertise and strategic guidance',
+                'team.role4': '<strong>Transdisciplinary Facilitation</strong> — Fostering systemic thinking and innovative problem-solving approaches',
+                'outcomes.tag': 'Eligibility & Impact',
+                'outcomes.title': 'Who Should Apply & What You\'ll Gain',
+                'outcomes.candidates': 'Ideal Candidates',
+                'outcomes.c1': 'Students in grades 9-12 (all backgrounds welcome)',
+                'outcomes.c2': 'No prior experience or specialized knowledge required',
+                'outcomes.c3': 'Curiosity about biotechnology, design, or interdisciplinary work',
+                'outcomes.c4': 'Willingness to explore unfamiliar territories and embrace challenges',
+                'outcomes.c5': 'Interest in developing unique project portfolios',
+                'outcomes.c6': 'Open to collaborative and experimental learning',
+                'outcomes.learning': 'Learning Outcomes',
+                'outcomes.l1': 'Transdisciplinary thinking and systems integration capabilities',
+                'outcomes.l2': 'Scientific creativity and design-driven innovation mindset',
+                'outcomes.l3': 'Deep understanding of biodesign principles and applications',
+                'outcomes.l4': 'Professional laboratory skills and technical competencies',
+                'outcomes.l5': 'Exposure to iGEM-style synthetic biology project workflows',
+                'outcomes.l6': 'Deliverable project work for portfolios and applications',
+                'faq.tag': 'Questions',
+                'faq.title': 'Frequently Asked Questions',
+                'faq.q1': 'Do students need prior biology or science background?',
+                'faq.a1': 'Absolutely not. This program welcomes students from all backgrounds—humanities, arts, sciences, or engineering. We begin with foundational concepts and progressively build complexity. What matters most is intellectual curiosity and willingness to engage with new ideas.',
+                'faq.q2': 'How is laboratory safety ensured?',
+                'faq.a2': 'Our facility complies with all biosafety regulations, and all activities occur under professional supervision. Before any hands-on work, students complete comprehensive safety training covering proper protocols, protective equipment, material handling, and emergency procedures. All biological materials are carefully vetted for safety.',
+                'faq.q3': 'What is the cohort size?',
+                'faq.a3': 'To ensure quality instruction while maintaining collaborative dynamics, we accept cohorts of 20-25 students. This size enables personalized guidance while fostering rich peer discussion and team-based project work.',
+                'faq.q4': 'What tangible outcomes will students produce?',
+                'faq.a4': 'Students will complete at least one comprehensive biodesign project, including research documentation, experimental records, and final presentation materials. These deliverables are suitable for university applications, science competitions, or personal portfolios. More importantly, students develop transdisciplinary thinking, scientific literacy, and innovation capabilities.',
+                'faq.q5': 'How does this relate to iGEM or synthetic biology competitions?',
+                'faq.a5': 'This program employs a project-based learning model similar to iGEM (International Genetically Engineered Machine competition), guiding students through the complete research cycle: problem identification, experimental design, implementation, and presentation. While not directly entering iGEM, students gain equivalent experience and skills, establishing a strong foundation for future international competition participation.',
+                'cta.title': 'Ready to Begin Your BioDesign Journey?',
+                'cta.subtitle': 'Limited spots available. Join our waitlist and we\'ll be in touch soon.',
+                'cta.button': 'Submit Application',
+                'footer.apply': 'Apply',
+                'footer.copyright': '© 2025 2Eng x Enlight iGEM Team. All rights reserved.'
+            },
+            'zh-TW': {
+                'nav.apply': '立即申請',
+                'hero.tag': 'iGEM 團隊計畫',
+                'hero.title1': '探索',
+                'hero.title2': '生物設計',
+                'hero.description': 'Jeff 專業團隊與 2Engineer 預備學校合作推出的生物科技教育課程。賦能高中生跨領域思考，探索生物設計這個結合生物科技、設計與藝術的新興領域——未來更有機會與台大設施合作。',
+                'hero.cta1': '加入候補名單',
+                'hero.cta2': '了解更多',
+                'program.tag': '課程概述',
+                'program.title': '生物科技教育的新典範',
+                'program.subtitle': '這門專案導向課程邀請高中生探索生物設計——一個科學與創意交會的新興跨領域。',
+                'program.card1.title': '專業環境',
+                'program.card1.desc': '在專業生物科技設施中進行，由主持人（PI）與我們的專業團隊共同創建，為學生提供真實的實驗室環境與尖端設備。',
+                'program.card2.title': '跨領域方法',
+                'program.card2.desc': '學生學習跨領域思考，運用生物設計作為媒介，深入探索生物科技、人工智慧及相關新興領域的概念。',
+                'program.card3.title': '超越傳統學習',
+                'program.card3.desc1': '我們鼓勵學生想像超越教室與網路「既定」的可能性。不僅僅是解決預設問題，學生將培養對世界複雜性的深入理解，使他們能夠發現對自己真正重要的事物，並對科學與社會做出有意義的貢獻。',
+                'program.card3.desc2': '我們計畫擴展至台大設施，為學生開啟進階研究機會及與頂尖機構合作的途徑。',
+                'features.tag': '核心特色',
+                'features.title': '讓這個課程與眾不同的原因',
+                'features.f1.title': '專業生技設施',
+                'features.f1.desc': '在專業實驗室環境中使用業界標準的設備與流程。',
+                'features.f2.title': '實作實驗經驗',
+                'features.f2.desc': '直接參與實驗技術，從基礎流程到進階應用。',
+                'features.f3.title': '完整專案開發',
+                'features.f3.desc': '從概念發想、設計、執行到發表的完整專案生命週期。',
+                'features.f4.title': '作品集成果',
+                'features.f4.desc': '適合大學申請與競賽的高品質專案成果。',
+                'features.f5.title': '小組指導',
+                'features.f5.desc': '小班制確保個人化指導與有意義的互動。',
+                'features.f6.title': '跨領域整合',
+                'features.f6.desc': '結合生物、科技、設計與藝術的整體性問題解決能力。',
+                'facility.tag': '基礎設施',
+                'facility.title': '頂尖學習環境',
+                'facility.subtitle': '專業實驗室空間',
+                'facility.p1': '我們的課程在符合生物安全規範的專業實驗室中進行，配備完整的分子生物學儀器、細胞培養設施以及生物設計專用工具。',
+                'facility.p2': '設施由經驗豐富的專業人員管理，確保所有操作符合嚴格的安全標準。學生在開始實作前將接受全面的安全訓練與倫理指導。',
+                'facility.p3': '未來擴展計畫包括與台灣大學（NTU）設施合作，為學生開啟進階研究基礎設施與學術合作的途徑。',
+                'facility.address': '台北市忠誠路二段140巷18弄5號',
+                'team.tag': '師資團隊',
+                'team.title': '專家領導教學',
+                'team.subtitle': 'Jeff 與專業教學團隊',
+                'team.p1': '我們的教學團隊由 Jeff 領導，他在生物科技、設計思維與跨領域教育方面擁有豐富專業知識。團隊成員來自分子生物學、合成生物學、設計、藝術與教育等不同背景。',
+                'team.p2': 'Jeff 擁有深厚的生物科技技術知識，結合對設計方法論與藝術表現的獨特見解。團隊成員貢獻來自學術界、產業界與創意領域的多元觀點，提供全方位的學生支持。',
+                'team.p3': '在整個課程中，教學團隊扮演多個關鍵角色：',
+                'team.role1': '<strong>課程設計與教學</strong> — 架構學習路徑並引導學生探索生物設計概念',
+                'team.role2': '<strong>實驗室訓練與安全</strong> — 確保正確的技術操作、設備使用與生物安全規範',
+                'team.role3': '<strong>專案指導</strong> — 以技術專業知識與策略指引支持個別專案',
+                'team.role4': '<strong>跨領域促進</strong> — 培養系統性思考與創新問題解決方法',
+                'outcomes.tag': '資格與影響',
+                'outcomes.title': '誰適合申請及您將獲得什麼',
+                'outcomes.candidates': '理想學員',
+                'outcomes.c1': '國中九年級至高中三年級學生（歡迎所有背景）',
+                'outcomes.c2': '無需任何先備經驗或專業知識',
+                'outcomes.c3': '對生物科技、設計或跨領域工作充滿好奇',
+                'outcomes.c4': '願意探索陌生領域並擁抱挑戰',
+                'outcomes.c5': '有興趣發展獨特的專案作品集',
+                'outcomes.c6': '開放協作與實驗性學習',
+                'outcomes.learning': '學習成果',
+                'outcomes.l1': '跨領域思考與系統整合能力',
+                'outcomes.l2': '科學創造力與設計驅動的創新思維',
+                'outcomes.l3': '深入理解生物設計原則與應用',
+                'outcomes.l4': '專業實驗室技能與技術能力',
+                'outcomes.l5': '體驗 iGEM 風格的合成生物學專案流程',
+                'outcomes.l6': '適合作品集與申請的專案成果',
+                'faq.tag': '常見問題',
+                'faq.title': '常見問題',
+                'faq.q1': '學生需要具備生物或科學背景嗎？',
+                'faq.a1': '完全不需要！本課程歡迎所有背景的學生——人文、藝術、理工皆可。我們從基礎概念開始，循序漸進建立複雜度。最重要的是智識好奇心與參與新想法的意願。',
+                'faq.q2': '如何確保實驗室安全？',
+                'faq.a2': '我們的設施符合所有生物安全法規，所有活動均在專業監督下進行。在開始任何實作之前，學生必須完成全面的安全訓練，涵蓋正確流程、防護設備、材料處理與緊急應變程序。所有生物材料都經過嚴格的安全審查。',
+                'faq.q3': '班級人數是多少？',
+                'faq.a3': '為確保教學品質並維持協作動力，我們每班招收 20-25 名學生。這個規模能提供個人化指導，同時促進豐富的同儕討論與團隊專案合作。',
+                'faq.q4': '學生將產出什麼具體成果？',
+                'faq.a4': '學生將完成至少一個完整的生物設計專案，包括研究文件、實驗記錄與最終發表材料。這些成果適合用於大學申請、科學競賽或個人作品集。更重要的是，學生將培養跨領域思考、科學素養與創新能力。',
+                'faq.q5': '這與 iGEM 或合成生物學競賽有什麼關聯？',
+                'faq.a5': '本課程採用類似 iGEM（國際基因工程機器競賽）的專案導向學習模式，引導學生完成完整的研究週期：問題識別、實驗設計、執行與發表。雖然不直接參加 iGEM，但學生將獲得相當的經驗與技能，為未來參與國際競賽奠定堅實基礎。',
+                'cta.title': '準備好開啟您的生物設計之旅了嗎？',
+                'cta.subtitle': '名額有限，立即加入候補名單，我們將盡快與您聯繫。',
+                'cta.button': '提交申請',
+                'footer.apply': '申請',
+                'footer.copyright': '© 2025 2Eng x Enlight iGEM 團隊。保留所有權利。'
+            }
+        };
+
+        // Get saved language or default to 'en'
+        let currentLang = localStorage.getItem('language') || 'en';
+
+        // Update content based on language
+        function updateContent(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            document.body.setAttribute('lang', lang);
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    // Check if the element contains HTML (like <strong> tags)
+                    if (translations[lang][key].includes('<')) {
+                        element.innerHTML = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update button states
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Save language preference
+            localStorage.setItem('language', lang);
+        }
+
+        // Language toggle event listeners
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                updateContent(button.dataset.lang);
+            });
+        });
+
+        // Initialize with saved or default language
+        updateContent(currentLang);
+    </script>
 </body>
 </html>
